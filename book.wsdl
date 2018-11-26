@@ -1,0 +1,127 @@
+<?xml version ='1.0' encoding ='UTF-8' ?> 
+<definitions name='Results' 
+  targetNamespace='http://localhost/webServices_Ca2/Results' 
+  xmlns:tns='http://localhost/webServices_Ca2/Results' 
+  xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' 
+  xmlns:xsd='http://www.w3.org/2001/XMLSchema' 
+  xmlns:soapenc='http://schemas.xmlsoap.org/soap/encoding/'
+  xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' 
+  xmlns='http://schemas.xmlsoap.org/wsdl/'>
+    
+
+<message name='getBookRequest'> 
+    <part name="bookId" type="xsd:string"/>
+</message>  
+<message name='getBookResponse'> 
+  <part name='Result' type='xsd:string'/> 
+</message> 
+
+
+<message name='getAllBooksRequest'> 
+    
+</message>  
+<message name='getAllBooksResponse'> 
+  <part name='Result' type='xsd:string'/> 
+</message> 
+
+
+<message name='getBookCategoryRequest'> 
+    <part name="bookCategory" type="xsd:string"/>
+</message>  
+<message name='getBookCategoryResponse'> 
+  <part name='Result' type='xsd:string'/> 
+</message> 
+
+<message name='getBookYearRequest'> 
+    <part name="year1" type="xsd:string"/>
+    <part name="year2" type="xsd:string"/>
+</message>  
+<message name='getBookYearResponse'> 
+  <part name='Result' type='xsd:string'/> 
+</message> 
+
+
+
+
+<portType name='ResultsPortType'> 
+  <operation name='getBookEntry'> 
+    <input message='tns:getBookRequest'/> 
+    <output message='tns:getBookResponse'/> 
+  </operation>
+  <operation name='getAllBooks'> 
+    <input message='tns:getAllBooksRequest'/> 
+    <output message='tns:getAllBooksResponse'/> 
+  </operation>
+  <operation name='getBookCategory'> 
+    <input message='tns:getBookCategoryRequest'/> 
+    <output message='tns:getBookCategoryResponse'/> 
+  </operation>
+  <operation name='getBookYear'> 
+    <input message='tns:getBookYearRequest'/> 
+    <output message='tns:getBookYearResponse'/> 
+  </operation>
+  
+</portType> 
+
+<binding name='ResultsBinding' type='tns:ResultsPortType'> 
+  <soap:binding style='rpc' 
+    transport='http://schemas.xmlsoap.org/soap/http'
+  /> 
+  
+  <operation name='getBookEntry'> 
+    <soap:operation soapAction='urn:localhost-Results#getBookEntry'/> 
+    <input> 
+      <soap:body use='encoded' namespace='urn:localhost-Results' 
+        encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+    </input> 
+    <output> 
+      <soap:body use='encoded' namespace='urn:localhost-Results' 
+        encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+    </output> 
+  </operation>
+  
+    <operation name='getAllBooks'> 
+    <soap:operation soapAction='urn:localhost-Results#getAllBooks'/> 
+    <input> 
+      <soap:body use='encoded' namespace='urn:localhost-Results' 
+        encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+    </input> 
+    <output> 
+      <soap:body use='encoded' namespace='urn:localhost-Results' 
+        encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+    </output> 
+  </operation>
+  
+  <operation name='getBookCategory'> 
+    <soap:operation soapAction='urn:localhost-Results#getBookCategory'/> 
+    <input> 
+      <soap:body use='encoded' namespace='urn:localhost-Results' 
+        encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+    </input> 
+    <output> 
+      <soap:body use='encoded' namespace='urn:localhost-Results' 
+        encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+    </output> 
+  </operation>
+  
+    <operation name='getBookYear'> 
+    <soap:operation soapAction='urn:localhost-Results#getBookYear'/> 
+    <input> 
+      <soap:body use='encoded' namespace='urn:localhost-Results' 
+        encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+    </input> 
+    <output> 
+      <soap:body use='encoded' namespace='urn:localhost-Results' 
+        encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+    </output> 
+  </operation>
+  
+</binding> 
+
+<service name='ResultsService'> 
+  <port name='ResultsPort' binding='ResultsBinding'> 
+    <soap:address location='http://localhost/webServices_Ca2/server.php'/> 
+  </port> 
+</service>
+
+</definitions>
